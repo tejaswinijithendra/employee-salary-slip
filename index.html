@@ -1,32 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <title>Employee Salary Slip Download</title>
 </head>
+
 <body>
     <div class="container">
         <form id="download-form">
             <div class="form-input">
                 <label id="name">Employee Name</label>
-                <input type="text" id="name" placeholder="Enter your name" class="form-input-size" required />
+                <input name="name" type="text" id="name" placeholder="Enter your name" class="form-input-size" required />
             </div>
             <div class="form-input">
                 <label id="code">Employee Code</label>
-                <input type="text" id="code" placeholder="Enter your code" class="form-input-size" required />
+                <input name="employeCode" type="text" id="code" placeholder="Enter your code" class="form-input-size" required />
+            </div>
+            <div class="form-input" style="margin-right: 1.8rem;">
+                <label id="month">Select a Month</label>
+                <select name="month" id="month">
+                    <option value="">Select Month</option>
+                    <option value="January">January</option>
+                    <option value="February">February</option>
+                    <option value="March">March</option>
+                    <option value="April">April</option>
+                    <option value="May">May</option>
+                    <option value="June">June</option>
+                    <option value="July">July</option>
+                    <option value="August">August</option>
+                    <option value="September">September</option>
+                    <option value="October">October</option>
+                    <option value="November">November</option>
+                    <option value="December">December</option>
+                </select>
             </div>
             <div class="form-input">
-                <label id="month">Select Month</label>
-                <input type="month" id="month" placeholder="Enter month" class="form-input-size" required />
+                <button type="submit" id="download">DOWNLOAD</button>
             </div>
-            <div class="form-input">
-                <button type="button" id="download">DOWNLOAD</button>
-                </div>
-                
         </form>
     </div>
+    <script src="./script.js"></script>
 </body>
+
 </html>
