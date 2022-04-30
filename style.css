@@ -76,4 +76,8 @@ select {
     margin:0
 }
 
+#errormessage {
+    color: black;
+}
+
 

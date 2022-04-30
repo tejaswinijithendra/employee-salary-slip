@@ -1,8 +1,11 @@
 (function(){
    const form = document.getElementById("download-form");
+   const errEl = document.getElementById("errormessage")
     var db = null;
    form.addEventListener("submit", (e) => {
         e.preventDefault();
+        errEl.textContent = "Building you PDF....";
+        errEl.style.color = "black"
         const formData = new FormData(e.target);
         let object = {};
         formData.forEach((value, key) => object[key] = value);
@@ -13,14 +16,22 @@
     let name = input.name;
     let id = input.employeCode;
     let month = input.month;
-    console.log(name, id, month)
+
     for(let i=0; i < db.length; i++){
         if(db[i].name === name && db[i].id === id && db[i].month === month){
             formHtml(db[i]);
-            break;
+            return;
         }
     }
+    errorFunction()
    }
+
+   function errorFunction(){
+       form.reset();
+        errEl.textContent = "There is some problem in building your PDF. Please check you entered correct values."
+        errEl.style.color = "red"
+   }
+
    window.addEventListener("load", () => {
        loadData()
    });
@@ -31,7 +42,6 @@
        return response.json();
     })
     .then(data => {
-        console.log('data', data)
         db = data;
     });
    }
@@ -75,7 +85,9 @@
    }
 
 
-    function generatePdf(el){
-        var worker = html2pdf().from(el).save();
+    function generatePdf(teja){
+        html2pdf().from(teja).save();
+        form.reset()
+        errEl.textContent = "PDF has been successfully generated."
     }
 })();
