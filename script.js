@@ -12,6 +12,7 @@
         analyse(object);
    })
 
+  
    function analyse(input){
     let name = input.name;
     let id = input.employeCode;
