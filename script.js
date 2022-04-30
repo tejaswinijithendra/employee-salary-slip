@@ -18,7 +18,10 @@
         if(db[i].name === name && db[i].id === id && db[i].month === month){
             formHtml(db[i]);
             break;
-        }
+        }   
+            
+         
+        
     }
    }
    window.addEventListener("load", () => {
